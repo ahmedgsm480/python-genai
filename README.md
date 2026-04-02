@@ -74,7 +74,7 @@ Below is an example `generate_content()` call using types from the types module:
 
 ```python
 response = client.models.generate_content(
-    model='gemini-2.5-flash',
+    model='gemini-3-flash-preview',
     contents=types.Part.from_text(text='Why is the sky blue?'),
     config=types.GenerateContentConfig(
         temperature=0,
@@ -89,7 +89,7 @@ types:
 
 ```python
 response = client.models.generate_content(
-    model='gemini-2.5-flash',
+    model='gemini-3-flash-preview',
     contents={'text': 'Why is the sky blue?'},
     config={
         'temperature': 0,
@@ -323,7 +323,7 @@ See the 'Create a client' section above to initialize a client.
 
 ```python
 response = client.models.generate_content(
-    model='gemini-2.5-flash', contents='Why is the sky blue?'
+    model='gemini-3-flash-preview', contents='Why is the sky blue?'
 )
 print(response.text)
 ```
@@ -363,7 +363,7 @@ python code.
 ```python
 file = client.files.upload(file='a11.txt')
 response = client.models.generate_content(
-    model='gemini-2.5-flash',
+    model='gemini-3-flash-preview',
     contents=['Could you summarize this file?', file]
 )
 print(response.text)
@@ -593,7 +593,7 @@ and [Gemini API docs](https://ai.google.dev/gemini-api/docs/models) respectively
 from google.genai import types
 
 response = client.models.generate_content(
-    model='gemini-2.5-flash',
+    model='gemini-3-flash-preview',
     contents='high',
     config=types.GenerateContentConfig(
         system_instruction='I say high, you say low',
@@ -642,7 +642,7 @@ print(async_pager[0])
 from google.genai import types
 
 response = client.models.generate_content(
-    model='gemini-2.5-flash',
+    model='gemini-3-flash-preview',
     contents='Say something bad.',
     config=types.GenerateContentConfig(
         safety_settings=[
@@ -676,7 +676,7 @@ def get_current_weather(location: str) -> str:
 
 
 response = client.models.generate_content(
-    model='gemini-2.5-flash',
+    model='gemini-3-flash-preview',
     contents='What is the weather like in Boston?',
     config=types.GenerateContentConfig(tools=[get_current_weather]),
 )
@@ -694,7 +694,7 @@ as follows:
 from google.genai import types
 
 response = client.models.generate_content(
-    model='gemini-2.5-flash',
+    model='gemini-3-flash-preview',
     contents='What is the weather like in Boston?',
     config=types.GenerateContentConfig(
         tools=[get_current_weather],
@@ -741,7 +741,7 @@ function = types.FunctionDeclaration(
 tool = types.Tool(function_declarations=[function])
 
 response = client.models.generate_content(
-    model='gemini-2.5-flash',
+    model='gemini-3-flash-preview',
     contents='What is the weather like in Boston?',
     config=types.GenerateContentConfig(tools=[tool]),
 )
@@ -785,7 +785,7 @@ function_response_content = types.Content(
 )
 
 response = client.models.generate_content(
-    model='gemini-2.5-flash',
+    model='gemini-3-flash-preview',
     contents=[
         user_prompt_content,
         function_call_content,
@@ -820,7 +820,7 @@ def get_current_weather(location: str) -> str:
     return "sunny"
 
 response = client.models.generate_content(
-    model="gemini-2.5-flash",
+    model="gemini-3-flash-preview",
     contents="What is the weather like in Boston?",
     config=types.GenerateContentConfig(
         tools=[get_current_weather],
@@ -850,7 +850,7 @@ def get_current_weather(location: str) -> str:
     return "sunny"
 
 response = client.models.generate_content(
-    model="gemini-2.5-flash",
+    model="gemini-3-flash-preview",
     contents="What is the weather like in Boston?",
     config=types.GenerateContentConfig(
         tools=[get_current_weather],
